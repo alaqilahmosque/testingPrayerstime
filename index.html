@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسجد العقيلة ع بالجش</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet"> <!-- Load Montserrat SemiBold -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet"> <!-- Load Tajawal font -->
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif; /* Set Tajawal as the main font */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            direction: rtl;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .green-line {
+            height: 5px;
+            background-color: #008000;
+            flex-grow: 1; /* Make green lines grow to fill the container */
+        }
+        #logo {
+            height: 60px;
+            margin: 0 20px;
+        }
+        #current-time {
+            font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 5em;
+            color: #008000;
+            font-weight: bold;
+            margin-bottom: 5px;
+			width: 100%;
+        }
+        .date-display {
+            display: flex;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #008000;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #current-day, #hijri-date {
+            margin: 0 10px;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #008000;
+            color: white;
+            font-size: 2em;
+        }
+        td {
+            font-size: 2em;
+        }
+        .ticker-wrapper {
+			width: 100%; /* Full width of the container */
+			height: 50px; /* Set a specific height here */
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            width: 100vw; /* Ensure the wrapper takes the full viewport width */
+        }
+        .ticker {
+            position: absolute;
+			display: flex;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+        .ticker-item {
+			 
+			margin-left: 40px;
+            display: inline-block;
+            padding-right: 40px; /* Space between items */
+        }
+		.ticker-item img {
+			height: 30px; /* Adjust based on your design */
+			vertical-align: middle; /* Keep the logo aligned with the text */
+			
+			padding-right: 60px; /* Space between items */
+			padding-left: 0px; /* Space between items */
+
+		}
+        @keyframes ticker {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        @media (max-width: 600px) {
+            .ticker-item {
+                padding-right: 20px; /* Smaller space between items on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="green-line"></div>
+        <img id="logo" src="logo.png" alt="Mosque Logo">
+        <div class="green-line"></div>
+    </div>
+    <h1>أوقات الصلاة في محافظة القطيف</h1>
+    <div id="current-time"></div>
+    <div class="date-display">
+        <div id="current-day"></div>
+        <div id="hijri-date"></div>
+    </div>
+    <table id="prayer-times">
+        <thead>
+            <tr>
+                <th>الصلاة</th>
+                <th>الوقت</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>الصبح</td><td id="fajr"></td></tr>
+            <tr><td>الظهرين</td><td id="dhuhr"></td></tr>
+            <tr><td>العشائين</td><td id="maghrib"></td></tr>
+        </tbody>
+    </table>
+
+    <!-- Shia Important Days Ticker -->
+    <div class="ticker-wrapper">
+        <div class="ticker">
+            <div class="ticker-item">
+                <span>التاريخ:</span> 7 صفر - استشهاد الإمام الحسن (عليه السلام)
+				<span></span>
+				<img src="logo.png" alt="Logo" "vertical-align: middle;">
+            </div>
+            <div class="ticker-item">
+                <span>التاريخ:</span> 20 صفر -  أربعينية الإمام الحسين (عليه السلام)
+				<img src="logo.png" alt="Logo" "vertical-align: middle;">
+            </div>
+            <div class="ticker-item">
+                <span>التاريخ:</span> 28 صفر -  استشهاد الرسول الأعظم محمد (صلى الله عليه وآله وسلم)
+				<img src="logo.png" alt="Logo" "vertical-align: middle;">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
